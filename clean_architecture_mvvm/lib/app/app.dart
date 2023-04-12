@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
-import '../presentation/resources/theme_manager.dart';
+// import '../presentation/resources/theme_manager.dart';
 
  class MyApp extends StatefulWidget {
   MyApp._internal(); // private named constructor
@@ -21,7 +21,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: getApplicationTheme(),
+      // theme: getApplicationTheme(),
     );
   }
 }
