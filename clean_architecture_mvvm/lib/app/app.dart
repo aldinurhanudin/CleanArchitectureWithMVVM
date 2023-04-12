@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
-import '../presentation/theme_manager.dart';
+import '../presentation/resources/theme_manager.dart';
 
  class MyApp extends StatefulWidget {
   MyApp._internal(); // private named constructor

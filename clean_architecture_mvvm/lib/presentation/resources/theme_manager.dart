@@ -1,8 +1,8 @@
 import 'dart:math';
 
-import 'package:clean_architecture_mvvm/presentation/color_manager.dart';
-import 'package:clean_architecture_mvvm/presentation/font_manager.dart';
-import 'package:clean_architecture_mvvm/presentation/styles_manager.dart';
+import 'package:clean_architecture_mvvm/presentation/resources/color_manager.dart';
+import 'package:clean_architecture_mvvm/presentation/resources/font_manager.dart';
+import 'package:clean_architecture_mvvm/presentation/resources/styles_manager.dart';
 import 'package:clean_architecture_mvvm/presentation/values_manager.dart';
 // import 'package:flutter/material.dart';
 import 'dart:ui';
