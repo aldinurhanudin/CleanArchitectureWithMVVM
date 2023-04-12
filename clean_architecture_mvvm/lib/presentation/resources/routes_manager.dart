@@ -2,6 +2,7 @@ import 'package:clean_architecture_mvvm/presentation/forgot_password/forgot_pass
 import 'package:clean_architecture_mvvm/presentation/login/login.dart';
 import 'package:clean_architecture_mvvm/presentation/main/main_view.dart';
 import 'package:clean_architecture_mvvm/presentation/register/register.dart';
+import 'package:clean_architecture_mvvm/presentation/resources/strings_manager.dart';
 import 'package:clean_architecture_mvvm/presentation/splash/splash.dart';
 import 'package:flutter/material.dart';
 
@@ -45,11 +46,11 @@ class RouteGenerator {
       builder: (_) => Scaffold(
         appBar: AppBar(
           title: Text(
-            "No Route Found",
+            AppStrings.noRouteFound,
           ),
         ),
         body: Center(
-          child: Text("No Route Found"),
+          child: Text(AppStrings.noRouteFound,),
         ),
       ),
     );
