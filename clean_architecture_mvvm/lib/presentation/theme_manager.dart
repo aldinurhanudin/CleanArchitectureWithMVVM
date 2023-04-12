@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:clean_architecture_mvvm/presentation/color_manager.dart';
 import 'package:clean_architecture_mvvm/presentation/font_manager.dart';
 import 'package:clean_architecture_mvvm/presentation/styles_manager.dart';
@@ -54,19 +56,63 @@ ThemeData getApplicationTheme() {
     ),
     //Text theme
     textTheme: TextTheme(
-      headline1: getSemiBoldStyle(
-        color: ColorManager.darkGrey,
-        fontSize: FontSize.s16,
-      ),
-      subtitle1: getMediumStyle(
-        color: ColorManager.lightGrey,
-        fontSize: FontSize.s16,
-      ),
-      caption: getRegularStyle(
-        color: ColorManager.grey1,
-      ),
-      bodyText1: getRegularStyle(color: ColorManager.grey)
-    ),
+        headline1: getSemiBoldStyle(
+          color: ColorManager.darkGrey,
+          fontSize: FontSize.s16,
+        ),
+        subtitle1: getMediumStyle(
+          color: ColorManager.lightGrey,
+          fontSize: FontSize.s16,
+        ),
+        caption: getRegularStyle(
+          color: ColorManager.grey1,
+        ),
+        bodyText1: getRegularStyle(color: ColorManager.grey)),
     //input decoration theme(Text form)
+    inputDecorationTheme: InputDecorationTheme(
+      contentPadding: EdgeInsets.all(AppPadding.p8),
+      //hintStyle
+      hintStyle: getRegularStyle(color: ColorManager.grey1),
+
+      //label style
+      labelStyle: getMediumStyle(color: ColorManager.darkGrey),
+
+      //error style
+      errorStyle: getRegularStyle(
+        color: ColorManager.error,
+      ),
+
+      //enabled border
+      enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: ColorManager.grey, width: AppSize.s1_5),
+        borderRadius: BorderRadius.all(
+          Radius.circular(AppSize.s8),
+        ),
+      ),
+      //focused border
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: ColorManager.grey, width: AppSize.s1_5),
+        borderRadius: BorderRadius.all(
+          Radius.circular(AppSize.s8),
+        ),
+      ),
+
+      //error border
+      errorBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: ColorManager.grey, width: AppSize.s1_5),
+        borderRadius: BorderRadius.all(
+          Radius.circular(AppSize.s8),
+        ),
+      ),
+
+      //focused error border
+       focusedErrorBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: ColorManager.grey, width: AppSize.s1_5),
+        borderRadius: BorderRadius.all(
+          Radius.circular(AppSize.s8),
+        ),
+      ),
+    ),
+    
   );
 }
