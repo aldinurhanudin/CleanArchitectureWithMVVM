@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../resources/color_manager.dart';
 import '../resources/strings_manager.dart';
@@ -32,27 +33,48 @@ class _OnBoardingViewState extends State<OnBoardingView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorManager.white,
+      appBar: AppBar(
         backgroundColor: ColorManager.white,
-        appBar: AppBar(
-          elevation: AppSize.s1_5,
-          systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarColor: ColorManager.white,
-            statusBarBrightness: Brightness.dark,
-            statusBarIconBrightness: Brightness.dark,
-          ),
+        elevation: AppSize.s1_5,
+        systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor: ColorManager.white,
+          statusBarBrightness: Brightness.dark,
+          statusBarIconBrightness: Brightness.dark,
         ),
-        body: PageView.builder(
-          controller: _pageController,
-          itemCount: _list.length,
-          onPageChanged: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
-          itemBuilder: (context, index) {
-            //return OnBoardingpage
-          },
-        ));
+      ),
+      body: PageView.builder(
+        controller: _pageController,
+        itemCount: _list.length,
+        onPageChanged: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        itemBuilder: (context, index) {
+          return OnBoardingpage(_list[index]);
+        },
+      ),
+      bottomSheet: Container(
+        color: ColorManager.white,
+        height: AppSize.s100,
+        child: Column(
+          children: [
+            Align(
+              alignment: Alignment.centerRight,
+              child: TextButton(
+                onPressed: () {},
+                child: Text(
+                  AppStrings.skip,
+                  textAlign: TextAlign.end,
+                ),
+              ),
+            ),
+            // Add layout for indicator and arrows
+          ],
+        ),
+      ),
+    );
   }
 }
 
@@ -84,7 +106,12 @@ class OnBoardingpage extends StatelessWidget {
             style: Theme.of(context).textTheme.subtitle1,
           ),
         ),
-        SizedBox(height: AppSize.s60,)
+        SizedBox(
+          height: AppSize.s60,
+        ),
+        SvgPicture.asset(_sliderObject.image),
+
+        //image widget
       ],
     );
   }
