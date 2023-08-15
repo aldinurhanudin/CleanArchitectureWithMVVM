@@ -1,4 +1,4 @@
-abstract class BaseViewModel{
+abstract class BaseViewModel extends BaseViewModelInputs with BaseViewModelOutputs{
 
 }
 abstract class BaseViewModelInputs{
@@ -8,4 +8,4 @@ abstract class BaseViewModelInputs{
 
 abstract class BaseViewModelOutputs{
   
-}
+ }
