@@ -94,6 +94,7 @@ Widget _getBottomSheetWidget() {
           ),
           onTap: (){
             // go to next slide
+            _pageController.animateToPage(_getPreviousIndex(), duration: Duration(milliseconds: DurationConstant.d300), curve: Curves.bounceInOut);
           },
         ),
       ),
@@ -119,11 +120,27 @@ Widget _getBottomSheetWidget() {
           ),
           onTap: (){
             // go to next slide
+            _pageController.animateToPage(_getNextIndex(), duration: Duration(milliseconds: DurationConstant.d300), curve: Curves.bounceInOut);
           },
         ),
       ),
     ],
   );
+}
+
+int  _getPreviousIndex(){
+  int proviousIndex = _currentIndex --; // -1
+  if(proviousIndex == -1){
+    _currentIndex = _list.length -1; // infinete loop to go to the length of slider list
+  }
+  return _currentIndex;
+}
+int  _getNextIndex(){
+  int nextIndex = _currentIndex ++; // -1
+  if(nextIndex == _list.length){
+    _currentIndex = 0; // infinete loop to go to the length of slider list
+  }
+  return _currentIndex;
 }
 Widget _getProperCircle(int index){
   if (index == _currentIndex) {
