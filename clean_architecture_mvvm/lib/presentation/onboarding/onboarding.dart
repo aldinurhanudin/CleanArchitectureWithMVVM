@@ -1,3 +1,4 @@
+import 'package:clean_architecture_mvvm/domain/model.dart';
 import 'package:clean_architecture_mvvm/presentation/resources/assets_manager.dart';
 import 'package:clean_architecture_mvvm/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
@@ -17,19 +18,10 @@ class OnBoardingView extends StatefulWidget {
 }
 
 class _OnBoardingViewState extends State<OnBoardingView> {
-  late final List<SliderObject> _list = _getSliderData();
+  
   PageController _pageController = PageController(initialPage: 0);
   int _currentIndex = 0;
-  List<SliderObject> _getSliderData() => [
-        SliderObject(AppStrings.onBoardingSubTitle1,
-            AppStrings.onBoardingSubTitle1, ImageAssets.onboardingLogo1),
-        SliderObject(AppStrings.onBoardingSubTitle2,
-            AppStrings.onBoardingSubTitle2, ImageAssets.onboardingLogo2),
-        SliderObject(AppStrings.onBoardingSubTitle3,
-            AppStrings.onBoardingSubTitle3, ImageAssets.onboardingLogo3),
-        SliderObject(AppStrings.onBoardingSubTitle4,
-            AppStrings.onBoardingSubTitle4, ImageAssets.onboardingLogo4),
-      ];
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -153,6 +145,13 @@ Widget _getProperCircle(int index){
     return SvgPicture.asset(ImageAssets.solidCircleIc);
   }
 }
+
+@override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
+
 }
 class OnBoardingpage extends StatelessWidget {
   SliderObject _sliderObject;
