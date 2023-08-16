@@ -1,4 +1,5 @@
 import 'package:clean_architecture_mvvm/domain/model.dart';
+import 'package:clean_architecture_mvvm/presentation/onboarding/onboarding_view_model.dart';
 import 'package:clean_architecture_mvvm/presentation/resources/assets_manager.dart';
 import 'package:clean_architecture_mvvm/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
@@ -20,11 +21,25 @@ class OnBoardingView extends StatefulWidget {
 class _OnBoardingViewState extends State<OnBoardingView> {
   
   PageController _pageController = PageController(initialPage: 0);
+  OnBoardingViewModel _viewModel = OnBoardingViewModel();
+  _bind( ){
+    _viewModel.start();
+  }
+  @override
+  void initState() {
+    _bind();
+    super.initState();
+    
+  }
   int _currentIndex = 0;
   
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return _getContentWidget();
+  }
+
+Widget _getContentWidget (){
+ return Scaffold(
       backgroundColor: ColorManager.white,
       appBar: AppBar(
         backgroundColor: ColorManager.white,
@@ -69,9 +84,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
         ),
       ),
     );
-  }
-
-
+ 
+}
 Widget _getBottomSheetWidget() {
   return Container(
     color: ColorManager.primary,
@@ -124,20 +138,8 @@ Widget _getBottomSheetWidget() {
   );
 }
 
-int  _getPreviousIndex(){
-  int proviousIndex = _currentIndex --; // -1
-  if(proviousIndex == -1){
-    _currentIndex = _list.length -1; // infinete loop to go to the length of slider list
-  }
-  return _currentIndex;
-}
-int  _getNextIndex(){
-  int nextIndex = _currentIndex ++; // -1
-  if(nextIndex == _list.length){
-    _currentIndex = 0; // infinete loop to go to the length of slider list
-  }
-  return _currentIndex;
-}
+
+
 Widget _getProperCircle(int index){
   if (index == _currentIndex) {
      return SvgPicture.asset(ImageAssets.hollowCircleIc);
@@ -148,7 +150,7 @@ Widget _getProperCircle(int index){
 
 @override
   void dispose() {
-    // TODO: implement dispose
+    _viewModel.dispose();
     super.dispose();
   }
 
