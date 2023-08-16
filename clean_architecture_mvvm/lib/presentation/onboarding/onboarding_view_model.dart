@@ -25,17 +25,26 @@ int _currentIndex = 0;
   
   @override
   void goNext() {
-    // TODO: implement goNext
+    int nextIndex = _currentIndex ++; // -1
+  if(nextIndex == _list.length){
+    _currentIndex = 0; // infinete loop to go to the length of slider list
+  }
+  _postDataToView();
   }
   
   @override
   void goPrevious() {
-    // TODO: implement goPrevious
+    int proviousIndex = _currentIndex --; // -1
+  if(proviousIndex == -1){
+    _currentIndex = _list.length -1; // infinete loop to go to the length of slider list
+  }
+  _postDataToView();
   }
   
   @override
-  void onPageChanged(int Index) {
-    // TODO: implement onPageChanged
+  void onPageChanged(int index) {
+    _currentIndex = index;
+    _postDataToView();
   }
   
   @override
