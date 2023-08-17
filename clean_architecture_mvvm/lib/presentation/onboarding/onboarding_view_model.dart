@@ -7,7 +7,7 @@ import 'package:clean_architecture_mvvm/presentation/resources/strings_manager.d
 
 class OnBoardingViewModel extends BaseViewModel with OnBoardingViewModelInputs, OnBoardingViewModelOutputs{
 
-final StreamController _streamController = StreamController<SlideViewObject>();
+final StreamController _streamController = StreamController<SliderViewObject>();
 
 late final List<SliderObject> _list ;
 int _currentIndex = 0;
@@ -24,21 +24,23 @@ int _currentIndex = 0;
   }
   
   @override
-  void goNext() {
+  int goNext() {
     int nextIndex = _currentIndex ++; // -1
   if(nextIndex == _list.length){
     _currentIndex = 0; // infinete loop to go to the length of slider list
   }
-  _postDataToView();
+   return _currentIndex;
   }
   
   @override
-  void goPrevious() {
+  int goPrevious() {
     int proviousIndex = _currentIndex --; // -1
   if(proviousIndex == -1){
     _currentIndex = _list.length -1; // infinete loop to go to the length of slider list
+   
   }
-  _postDataToView();
+  
+   return _currentIndex;
   }
   
   @override
@@ -53,7 +55,7 @@ int _currentIndex = 0;
   
   @override
   
-  Stream<SlideViewObject> get outputSliderViewObject => _streamController.stream.map((slideViewObject) => slideViewObject);
+  Stream<SliderViewObject> get outputSliderViewObject => _streamController.stream.map((slideViewObject) => slideViewObject);
 
   List<SliderObject> _getSliderData() => [
         SliderObject(AppStrings.onBoardingTitle1,
@@ -66,7 +68,7 @@ int _currentIndex = 0;
             AppStrings.onBoardingTitle4, ImageAssets.onboardingLogo4),
       ];
       _postDataToView(){
-        inputSliderViewObject.add(SlideViewObject(_list[_currentIndex], _list.length, _currentIndex));
+        inputSliderViewObject.add(SliderViewObject(_list[_currentIndex], _list.length, _currentIndex));
       }
 }
 
@@ -79,13 +81,13 @@ abstract class OnBoardingViewModelInputs{
 } 
 
 abstract class OnBoardingViewModelOutputs{
-  Stream<SlideViewObject> get  outputSliderViewObject;
+  Stream<SliderViewObject> get  outputSliderViewObject;
 }
 
-class SlideViewObject {
+class SliderViewObject {
   SliderObject sliderObject;
   int  numOfSlides;
   int currentIndex;
 
-  SlideViewObject(this.sliderObject,this.numOfSlides, this.currentIndex);
+  SliderViewObject(this.sliderObject,this.numOfSlides, this.currentIndex);
 }
