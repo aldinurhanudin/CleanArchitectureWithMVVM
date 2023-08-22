@@ -23,7 +23,9 @@ class CustomerResponse{
   //from json
  factory CustomerResponse.fromjson(Map<String,dynamic> json)=>_$CustomerResponseFromJson(json);
 //to json
- Map<String, dynamic> toJson() => _$CustomerResponseToJson(this); 
+ Map<String, dynamic> toJson() => _$CustomerResponseToJson(this);
+
+  static fromJson(Map<String, dynamic> json) {} 
 
 }
 
@@ -40,7 +42,9 @@ class ContactsResponse{
    //from json
  factory ContactsResponse.fromjson(Map<String,dynamic> json)=>_$ContactsResponseFromJson(json);
 //to json
- Map<String, dynamic> toJson() => _$ContactsResponseToJson(this); 
+ Map<String, dynamic> toJson() => _$ContactsResponseToJson(this);
+
+  static fromJson(Map<String, dynamic> json) {} 
 }
 
 @JsonSerializable()
