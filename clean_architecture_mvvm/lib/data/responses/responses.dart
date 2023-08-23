@@ -36,7 +36,7 @@ class ContactsResponse{
   @JsonKey(name:"phone")
   String? phone;
   @JsonKey(name:"link")
-  int? link;
+  String? link;
 
   ContactsResponse(this.email, this.phone,this.link);
    //from json
