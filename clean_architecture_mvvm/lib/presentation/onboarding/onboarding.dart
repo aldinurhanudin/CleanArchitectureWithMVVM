@@ -1,4 +1,4 @@
-import 'package:clean_architecture_mvvm/domain/model.dart';
+import 'package:clean_architecture_mvvm/domain/model/model.dart';
 import 'package:clean_architecture_mvvm/presentation/onboarding/onboarding_view_model.dart';
 import 'package:clean_architecture_mvvm/presentation/resources/assets_manager.dart';
 import 'package:clean_architecture_mvvm/presentation/resources/values_manager.dart';

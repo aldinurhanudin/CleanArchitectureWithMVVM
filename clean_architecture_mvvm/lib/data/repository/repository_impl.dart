@@ -2,10 +2,10 @@ import 'package:clean_architecture_mvvm/data/data_source/remote_data_source.dart
 import 'package:clean_architecture_mvvm/data/mapper/mapper.dart';
 import 'package:clean_architecture_mvvm/data/network/error_handler.dart';
 import 'package:clean_architecture_mvvm/data/network/network_info.dart';
-import 'package:clean_architecture_mvvm/domain/model.dart';
+import 'package:clean_architecture_mvvm/domain/model/model.dart';
 import 'package:clean_architecture_mvvm/data/request/request.dart';
 import 'package:clean_architecture_mvvm/data/network/failure.dart';
-import 'package:clean_architecture_mvvm/domain/repository.dart';
+import 'package:clean_architecture_mvvm/domain/repository/repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
