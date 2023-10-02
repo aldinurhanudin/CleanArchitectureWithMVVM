@@ -13,7 +13,16 @@ Future<DeviceInfo> getDeviceDetails() async {
 
   try {
     if (Platform.isAndroid) {
-    } else if (Platform.isIOS) {}
+      var build = await deviceInfoPlugin.androidInfo;
+      name = build.brand! + " "+ build.model!;
+      identifier = build.androidId!;
+      version = build.version.codename!;
+    } else if (Platform.isIOS) {
+       var build = await deviceInfoPlugin.iosInfo;
+      name = build.name! + " "+ build.model!;
+      identifier = build.identifierForVendor!;
+      version = build.systemVersion!;
+    }
   } on PlatformException {
     return DeviceInfo(name, identifier, version);
   }
